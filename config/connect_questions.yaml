@@ -1,0 +1,37 @@
+# Questions for posting a job, asking for a referral and finding an expert.
+# "optionsFrom: technologies" reuses the technology list from questions.yaml.
+job:
+  - { id: company, label: Company, type: text, text: "Which *company* is the opening at?" }
+  - { id: role, label: Role, type: text, text: "What's the *role / title*?" }
+  - id: type
+    label: Type
+    type: choice
+    text: What *kind of opening* is it?
+    options:
+      - { value: backfill, label: "Backfill (I'm leaving this role)" }
+      - { value: new, label: New opening }
+      - { value: referral, label: I can refer you }
+  - { id: technologies, label: Technologies, type: multi, allowOther: true, optionsFrom: technologies, text: "Which *technologies* are required?" }
+  - { id: exp_min, label: Min experience, type: number, min: 0, max: 40, text: "*Minimum* years of experience? (a number, e.g. 3)" }
+  - { id: exp_max, label: Max experience, type: number, min: 0, max: 60, text: "*Maximum* years of experience? (a number, e.g. 6)" }
+  - { id: location, label: Location, type: text, text: "*Location and work mode*? (e.g. Bangalore, Hybrid)" }
+  - id: max_notice
+    label: Max notice period
+    type: choice
+    text: What's the *longest notice period* you can accept?
+    options:
+      - { value: "0", label: Immediate joiners only }
+      - { value: "15", label: Up to 15 days }
+      - { value: "30", label: Up to 30 days }
+      - { value: "60", label: Up to 60 days }
+      - { value: "90", label: Up to 90 days }
+      - { value: "999", label: Any }
+  - { id: details, label: Details, type: text, optional: true, maxLength: 500, text: "Any *details* to add? (short description or a link to the JD)" }
+
+referral:
+  - { id: company, label: Company, type: text, text: "Which *company* do you want a referral at?" }
+  - { id: note, label: Note, type: text, optional: true, maxLength: 300, text: "Which *role* are you targeting? Add a short note for the person who might refer you." }
+
+expert:
+  - { id: tech, label: Topic, type: choice, optionsFrom: technologies, text: "Which *technology* do you need help with?" }
+  - { id: note, label: Question, type: text, maxLength: 300, text: "Describe *what you need help with* in a line or two." }

@@ -1,0 +1,30 @@
+{
+  "name": "automation-network-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "WhatsApp onboarding and networking bot for the Automation Network community",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "baileys": "^7.0.0-rc14",
+    "dotenv": "^18.0.10",
+    "node-cron": "^4.6.0",
+    "pino": "^10.4.0",
+    "qrcode-terminal": "^0.12.0",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/qrcode-terminal": "^0.12.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

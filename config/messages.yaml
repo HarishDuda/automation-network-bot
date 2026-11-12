@@ -1,0 +1,14 @@
+# Texts the bot sends. Edit freely. *bold* and _italic_ work in WhatsApp.
+communityName: Automation Network
+welcome: |-
+  👋 *Welcome to Automation Network!*
+  A private network for automation professionals: jobs, backfills, referrals and expert help.
+about: |-
+  *About Automation Network*
+  • The group is for daily insights and news from the automation market. No spam, no job floods.
+  • Your profile is private. It is never posted in the group.
+  • Jobs, referrals and expert help happen here in this chat. We connect two members only when *both* say yes.
+adminContact: An admin will get back to you here soon.
+nudge: |-
+  👋 Hi! Thanks for asking to join *Automation Network*.
+  Please answer a few quick questions first. Reply *Hi* to start. Your request is approved automatically once you finish.

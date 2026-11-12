@@ -1,0 +1,102 @@
+# Joining questions. You can freely edit the wording (text / label) and add options.
+# Don't rename the ids or option values: the matching logic uses them.
+# Types: text, number, choice (pick one), multi (pick several), url.
+- id: name
+  label: Name
+  type: text
+  text: What's your *full name*?
+
+- id: location
+  label: Location
+  type: text
+  text: Which *city / country* are you based in?
+
+- id: company
+  label: Company
+  type: text
+  text: Where are you *working currently*? (Type "Not working" or "Freelancer" if that applies.)
+
+- id: role
+  label: Role
+  type: text
+  text: What's your current *role / designation*?
+
+- id: experience
+  label: Experience
+  type: choice
+  text: How much *experience in automation* do you have?
+  options:
+    - { value: "0-1", label: "0–1 yrs", min: 0, max: 1 }
+    - { value: "1-3", label: "1–3 yrs", min: 1, max: 3 }
+    - { value: "3-5", label: "3–5 yrs", min: 3, max: 5 }
+    - { value: "5-8", label: "5–8 yrs", min: 5, max: 8 }
+    - { value: "8+",  label: "8+ yrs",  min: 8, max: 60 }
+
+- id: technologies
+  label: Technologies
+  type: multi
+  allowOther: true
+  text: Which *technologies / tools* do you work with?
+  options:
+    - { value: uipath, label: UiPath }
+    - { value: power_automate, label: Power Automate }
+    - { value: automation_anywhere, label: Automation Anywhere }
+    - { value: blue_prism, label: Blue Prism }
+    - { value: selenium, label: Selenium }
+    - { value: playwright, label: Playwright / Cypress }
+    - { value: python, label: Python }
+    - { value: nocode, label: n8n / Make / Zapier }
+    - { value: ai_agents, label: AI agents / LLMs }
+
+- id: projects
+  label: Projects
+  type: multi
+  allowOther: true
+  text: What *kind of projects* do you work on?
+  options:
+    - { value: rpa, label: RPA }
+    - { value: test_automation, label: Test automation }
+    - { value: workflow, label: Workflow / no-code }
+    - { value: ai_automation, label: AI automation }
+    - { value: devops, label: DevOps / CI-CD }
+    - { value: data, label: Data / ETL }
+
+- id: open_to_work
+  label: Open to work
+  type: choice
+  text: Are you *open to work*? (This stays private. It's only used to match you with roles.)
+  options:
+    - { value: full_time, label: "Yes, full-time" }
+    - { value: freelance, label: "Yes, freelance / contract" }
+    - { value: not_now, label: Not right now }
+
+- id: notice
+  label: Notice period
+  type: choice
+  text: What's your *notice period*?
+  showIf:
+    - { q: open_to_work, in: [full_time, freelance] }
+    - { q: company, notMatches: "^(not working|not employed|unemployed|none|no|na|n/a|nil|-|fresher|student)$" }
+  options:
+    - { value: "0", label: Immediate }
+    - { value: "15", label: 15 days }
+    - { value: "30", label: 30 days }
+    - { value: "60", label: 60 days }
+    - { value: "90", label: 90 days }
+
+- id: linkedin
+  label: LinkedIn
+  type: url
+  optional: true
+  text: Your *LinkedIn profile link*?
+
+- id: reach
+  label: Members can reach you for
+  type: multi
+  text: |-
+    Can other members *reach out to you* through the bot? You'll always be asked first, and your details are shared only if you say yes.
+  options:
+    - { value: jobs, label: Job matches }
+    - { value: referrals, label: Referrals at my company }
+    - { value: mentoring, label: Mentoring / expert help }
+    - { value: none, label: None of these, exclusive: true }
